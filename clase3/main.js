@@ -1,32 +1,15 @@
 const API = "https://api.thedogapi.com/v1/images/search";
 
-let imagenDog;
 
-const refreshButton = document.getElementById("refreshImage");
-const anotherImage = document.querySelector(".imagen");
-
-
-async function fetchData (urlApi) {
-    const response = await fetch(urlApi);
-    const data = await response.json();
-    return data;
+async function consumiendoApi (apiUrl) {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const doggyPictures = document.querySelector(".imagen");
+        doggyPictures.src = data[0].url;
+    } catch (error) {
+        throw new Error ("There is a problem with the API");
+    };
 };
 
-const refreshDog = async (urlApi) => {
-    try {
-        imagenDog = document.querySelector(".imagen");
-        imagenDog.src = await fetchData(data[0].url);
-    } catch (error) {
-        throw new Error("Sonthing is wrong");
-    }
-}
-
-refreshButton.onclick = refreshDog;
-
-
-
-
-
-
-
-
+consumiendoApi(API);
