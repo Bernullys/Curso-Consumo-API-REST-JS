@@ -6,14 +6,22 @@ const refreshButton = document.getElementById("refreshImage");
 const anotherImage = document.querySelector(".imagen");
 
 
-fetch(API)
-    .then(response => response.json())
-    .then(data => {
-        imagenDog = document.querySelector(".imagen");
-        imagenDog.src = data[0].url;
-    });
+async function fetchData (urlApi) {
+    const response = await fetch(urlApi);
+    const data = await response.json();
+    return data;
+};
 
-refreshButton.onclick = fetch;
+const refreshDog = async (urlApi) => {
+    try {
+        imagenDog = document.querySelector(".imagen");
+        imagenDog.src = await fetchData(data[0].url);
+    } catch (error) {
+        throw new Error("Sonthing is wrong");
+    }
+}
+
+refreshButton.onclick = refreshDog;
 
 
 
