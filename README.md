@@ -16,7 +16,7 @@ Cuando un usuario ingresa en el navegador web una pagina, este navegador lo que 
 
 Clase 3: Consume tu primera API REST
 
-Repositorios gratis en github: publicapis
+Repositorios con apis gratis en github: publicapis
     En el README.md del repositorio aparecen las descripciones de las apis.
     Tomar en cuenta: 
         Auth:   Autenticacion. Por ahora que no requiera o que requiera apiKey porque OAuth es complejo.
@@ -29,7 +29,24 @@ Repositorios gratis en github: publicapis
     Se pone a consumir la api con un html y un js. Utilizando funciones asincronas.(Ver archivos)
     Herramienta para ver las estructuras de las apis de manera ordenada: JSON Viewer (extension de chrome). Ahora cuando se recargue la pagina se vera de manera ordenada.
     Despues se hace dominio del DOM para enlazar los datos que queremos de la api al html. Y listo funciona.
-    Retos: 
+    Retos: (ver los commits)
         Crear un boton que refresque las imagenes.
         Utilizar la funcion async y await.
+
+
+Clase 4: Endpoints y query parameter: son una de las formas en que se pueden modificar los parametros que entrega la api. Esto si la api lo permite, para eso hay que leer la documentación de la api.
+
+    Los Endpoints son rutas, por ejemplo: (sirven para hacer solicitudes por partes)
+        api.com/breeds
+        api.com/categories
+        api.com/images
+    Los Query parameters: (son informacion extra para especificar mucho mejor el contenido que queremos pedir a la api)
+        /breeds?limit=5&page=2
+        /category?search=fun
+        /images/michi34?format=png
+    Reto: implementar query parameters.
+    
+    
+
+
 

@@ -1,11 +1,8 @@
 const API = "https://api.thedogapi.com/v1/images/search";
 
-
-const refreshButton = document.querySelector(".refresh-button");
-
-async function consumiendoApi (apiUrl) {
+async function consumiendoApi () {
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(API);
         const data = await response.json();
         const doggyPictures = document.querySelector(".imagen");
         doggyPictures.src = data[0].url;
@@ -14,6 +11,4 @@ async function consumiendoApi (apiUrl) {
     };
 };
 
-consumiendoApi(API);
-refreshButton.addEventListener("click", consumiendoApi);
-
+consumiendoApi();
