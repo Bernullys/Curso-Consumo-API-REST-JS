@@ -73,3 +73,6 @@ Clase 6: Que es una Api key? Es una de las formas en la que el backend puede ide
     User-based authentication
 
     Ahora que añadimos la api key, el backend empezara a dejar registro de cuanto la hemos utilizado y quien la esta utilizando. Y ahora si se pueden utilizar los "verbos" con la api... son otras caracteristicas que se pueden utilizar que vamos a ver de aqui en adelante.
+
+Clase 7: Maquetación del proyecto. Preparar todo el html para las proximas clases utilizar bien la api.
+
