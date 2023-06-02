@@ -1,4 +1,4 @@
-const API = "https://api.thedogapi.com/v1/images/search?limit=4";
+const API = "https://api.thedogapi.com/v1/images/search?limit=4&x-api-key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
 
 async function consumiendoApi () {
     try {

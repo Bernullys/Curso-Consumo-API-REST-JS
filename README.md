@@ -47,5 +47,29 @@ Clase 4: Endpoints y query parameter: son una de las formas en que se pueden mod
     Reto: implementar query parameters.
         Se escribe el query parameter pero tambien hay que hacer la modificacion en el html y agregar los documentos en el js.
 
+Clase 5: QUe son los HTTP Status Codes?
+    HTTP status codes:
+        1XX Respuestas Afirmativas
+        2XX Respuestas satisfactorias
+        3XX Re-direcciones
+        4XX Error del cliente
+        5XX Error de servidor
 
+Clase 6: Que es una Api key? Es una de las formas en la que el backend puede identificar quien esta haciendo cada solicitud. El backend tiene que saber quien hace las solicitudes para proteger la información, o limitar solicitudes.
+    Autenticación: consiste en identificar quien es cada quien. Solo sabe quienes son los usuarios.
+    Autorización: nos dice que permisos tiene cada quien. Revisa los permisos.
 
+    Para enviar las api key al backend existen varias formas:
+        Query parameter: ?api_key=sdfdwdfdsewfgfe (por ahora).
+        Authorization Header: X-API-Key: ABC123 (forma mas comoda).
+
+    Alternativas para que el backend identifique las solicitudes:
+        Authorization: Basic
+        Authorization: Bearer Token
+        OAuth 2.0 (la mejor pero se debe estudiar)
+        Access Key + Secret Key
+
+    Application-based authentication (Esto es lo que vamos a hacer en este curso)
+    User-based authentication
+
+    Ahora que añadimos la api key, el backend empezara a dejar registro de cuanto la hemos utilizado y quien la esta utilizando. Y ahora si se pueden utilizar los "verbos" con la api... son otras caracteristicas que se pueden utilizar que vamos a ver de aqui en adelante.
