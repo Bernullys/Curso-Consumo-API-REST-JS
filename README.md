@@ -45,8 +45,7 @@ Clase 4: Endpoints y query parameter: son una de las formas en que se pueden mod
         /category?search=fun
         /images/michi34?format=png
     Reto: implementar query parameters.
-    
-    
+        Se escribe el query parameter pero tambien hay que hacer la modificacion en el html y agregar los documentos en el js.
 
 
 
