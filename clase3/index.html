@@ -15,6 +15,8 @@
 
         <h2> Perritos aleatorios </h2>
 
+        <span id="error-in-random"></span>
+
         <article>
 
             <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
@@ -29,14 +31,7 @@
 
         </article>
 
-        <article>
-
-            <img width=250px class="imagen3" alt="Foto de un perrito aleatorio">
-            <button>Guardar foto en favoritos</button>
-
-        </article>
-
-        <button class="refresh-button" onclick="consumiendoApi()"> Refresh </button>
+        <button class="refresh-button" onclick="loadRandomDoggys()"> Refresh </button>
 
 
     </section>
@@ -44,6 +39,8 @@
     <section id="favoritesDogs">
 
         <h2>Perritos favoritos</h2>
+
+        <span id="error-in-favorites"></span>
 
         <article>
 

@@ -47,7 +47,7 @@ Clase 4: Endpoints y query parameter: son una de las formas en que se pueden mod
     Reto: implementar query parameters.
         Se escribe el query parameter pero tambien hay que hacer la modificacion en el html y agregar los documentos en el js.
 
-Clase 5: QUe son los HTTP Status Codes?
+Clase 5: QUe son los HTTP Status Codes? Es la forma en que el backend nos avisa de como le fue a nuestra solicitud.
     HTTP status codes:
         1XX Respuestas Afirmativas
         2XX Respuestas satisfactorias
@@ -69,10 +69,38 @@ Clase 6: Que es una Api key? Es una de las formas en la que el backend puede ide
         OAuth 2.0 (la mejor pero se debe estudiar)
         Access Key + Secret Key
 
-    Application-based authentication (Esto es lo que vamos a hacer en este curso)
-    User-based authentication
+    Application-based authentication (Esto es lo que vamos a hacer en este curso) Solo con una api key
+    User-based authentication (esto es mas profundo)
 
     Ahora que añadimos la api key, el backend empezara a dejar registro de cuanto la hemos utilizado y quien la esta utilizando. Y ahora si se pueden utilizar los "verbos" con la api... son otras caracteristicas que se pueden utilizar que vamos a ver de aqui en adelante.
 
 Clase 7: Maquetación del proyecto. Preparar todo el html para las proximas clases utilizar bien la api.
+
+
+Clase 8: Que son los Métodos HTTP? Son las formas en que el frontend le dice que esta pasando al backend.
+    Los mas utilizados son:
+        GET             por defecto para consumir info
+        POST            para crear info
+        PUT     
+        PUT y PATCH     para editar informacion que ya hayamos creado, toda o parte.
+        DELETE          borrar info
+
+
+Clase 9: GET: leyendo perritos favoritos.
+    Ajustamos el nombre de la funcion ya para avanzar en el proyecto, con un nombre mas descriptivo.
+    Para añadir fotos a la seccion de favoritos, se recomienda crear otra funcion.
+    En la documentacion dice que Favorites requiere api key. Ver la documentacion para ver los endpoints para cargar favoritos (es otra url que debemos usar en nuestra nueva funcion).
+    El endpoint para get favorites es: /favourites
+    Se cambia solo el endpoint, lo que va despues en el url queda igual.
+    Se crea una nueva const con esta url para la nueva funcion. (Tuve que ver los comentarios para que me funcionara porque me mandaba estado 401 (le saque la u a favourites). Ahora me da estado 404 porque no se ha agregado ninguna foto a favoritos).
+    En este punto tambien se puede observar que si se saca la api key no dejara utilizar los favoritos.
+    Otra forma de utilizar las url's con diferentes endpoints es haciendo const para la base y para los diferentes endpoints y despues llamarlos utilizando template strings.
+    
+    Termine de hacer la clase guiandome de lo que vi en los comentarios para mostrar los errores utilizando try y catch y tambien un poco de mi propio estilo.
+
+    Aparte: si sehace console.log(data) puedo ver el objeto y cuales son sus propiedades.
+
+
+
+
 
