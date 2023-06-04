@@ -16,7 +16,7 @@ Cuando un usuario ingresa en el navegador web una pagina, este navegador lo que 
 
 Clase 3: Consume tu primera API REST
 
-Repositorios con apis gratis en github: publicapis
+Repositorios con apis gratis en github: publicapis (la tengo con estrella para seguirla).
     En el README.md del repositorio aparecen las descripciones de las apis.
     Tomar en cuenta: 
         Auth:   Autenticacion. Por ahora que no requiera o que requiera apiKey porque OAuth es complejo.
@@ -88,19 +88,19 @@ Clase 8: Que son los Métodos HTTP? Son las formas en que el frontend le dice qu
 
 Clase 9: GET: leyendo perritos favoritos.
     Ajustamos el nombre de la funcion ya para avanzar en el proyecto, con un nombre mas descriptivo.
-    Para añadir fotos a la seccion de favoritos, se recomienda crear otra funcion.
-    En la documentacion dice que Favorites requiere api key. Ver la documentacion para ver los endpoints para cargar favoritos (es otra url que debemos usar en nuestra nueva funcion).
+    Para añadir fotos a la seccion de favoritos, se recomienda crear otra funcion. (loadFavouriteDoggys).
+    En la documentacion dice que Favourites requiere api key. Ver la documentacion para ver los endpoints para cargar favoritos (es otra url que debemos usar en nuestra nueva funcion).
     El endpoint para get favorites es: /favourites (pero la tuve que poner como el profe en la clase: api_key y no como en la documentación)
     Se cambia solo el endpoint, lo que va despues en el url queda igual.
-    Se crea una nueva const con esta url para la nueva funcion. (Tuve que ver los comentarios para que me funcionara porque me mandaba estado 401 (le saque la u a favourites). Ahora me da estado 404 porque no se ha agregado ninguna foto a favoritos).
+    Se crea una nueva const con esta url para la nueva funcion. (Ahora me da estado 401 porque no se ha agregado ninguna foto a favoritos).
     En este punto tambien se puede observar que si se saca la api key no dejara utilizar los favoritos.
     Otra forma de utilizar las url's con diferentes endpoints es haciendo const para la base y para los diferentes endpoints y despues llamarlos utilizando template strings.
     
     Termine de hacer la clase guiandome de lo que vi en los comentarios para mostrar los errores utilizando try y catch y tambien un poco de mi propio estilo.
 
-    Aparte: si sehace console.log(data) puedo ver el objeto y cuales son sus propiedades.
+    Aparte: si sehace console.log(data) puedo ver el objeto y cuales son sus propiedades. Ademas es bueno colocar un console.log(nombre de la ffuncion para entenderlo mas claro en consola).
 
-    OJO: odavia no he puesto a funcionar la funcion de cargar a favoritos pero por lo que veo el si... pero no ha dicho como.
+    OJO: Todavia no he puesto a funcionar la funcion de cargar a favoritos pero por lo que veo el si... pero no ha dicho como. (Despues de ver y volver varias veces vi como --- tenia que agregar una imagen_id de una de las imagenes que se habian cargado. Pero carga solo esa con el boton... creo que despues se acomodara.)
 
 Clase 10: POST: guardando los perritos favoritos.
     Ahora se va a hacer la funcion para guardar las imagenes favoritas.
@@ -117,13 +117,14 @@ Clase 11: Consultas a la API para escribir HTML dinámico.
     Como los elementos de la imagen es un array se recorre con data.forEach
     Se va a crear toda la estructura en el js para ver la imagen favorita:
 
-            
+            <section>
             <article>
             <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
             <button>Sacar foto en favoritos</button>
-        </article>
+            </article>
+            </section>
 
-    Despues de escrito el codigo en js:
+    Despues de escrito el codigo en js: (Repasar bien esta parte para el Dominio del DOM).
 
             const article = document.createElement("article");
             const img = document.createElement("img");
@@ -132,7 +133,14 @@ Clase 11: Consultas a la API para escribir HTML dinámico.
     
     Ahora hay que empezar a devolvernos(como se hizo en el curso practico de frontend developer):
 
+    Ahora nos damos cuenta de que se guardaba solo la imagen que le habiamos puesto el id harcodiado.
+    Para areglar eso:
+        Primero borramos el atributo onclick de los botones de Guardar foto en favoritos que teniamos llamando la funcion.
+        Tenemos que cargar los botones al js.
+        Despues agregarle la funcion .onclick que llame a la funcion saveFavouriteDoggy con el parametro data.id. Peroooooooooo asiendolo asi las funciones se estan llamando inmediatamente cuando se carga la pagina por lo que de debe meter esa funcion dentro de otra funcion. Y se hizo con arrow function.
 
 
 
+
+  
 
