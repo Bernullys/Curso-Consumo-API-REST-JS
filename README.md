@@ -90,7 +90,7 @@ Clase 9: GET: leyendo perritos favoritos.
     Ajustamos el nombre de la funcion ya para avanzar en el proyecto, con un nombre mas descriptivo.
     Para añadir fotos a la seccion de favoritos, se recomienda crear otra funcion.
     En la documentacion dice que Favorites requiere api key. Ver la documentacion para ver los endpoints para cargar favoritos (es otra url que debemos usar en nuestra nueva funcion).
-    El endpoint para get favorites es: /favourites
+    El endpoint para get favorites es: /favourites (pero la tuve que poner como el profe en la clase: api_key y no como en la documentación)
     Se cambia solo el endpoint, lo que va despues en el url queda igual.
     Se crea una nueva const con esta url para la nueva funcion. (Tuve que ver los comentarios para que me funcionara porque me mandaba estado 401 (le saque la u a favourites). Ahora me da estado 404 porque no se ha agregado ninguna foto a favoritos).
     En este punto tambien se puede observar que si se saca la api key no dejara utilizar los favoritos.
@@ -111,6 +111,26 @@ Clase 10: POST: guardando los perritos favoritos.
             body hay que especificarle un string porque ese body que esta en el backend no sabemos en que lenguaje esta entonces para estar seguro de que entienda hay que hacerlo con la funcion JSON.stringify es para que lea como un documento de texto. Y dentro de esa funcion se envia el objeto.
         Queda pendiente la explicación de los elementos del objeto del segundo argumento.
 
+
+Clase 11: Consultas a la API para escribir HTML dinámico.
+    Lo que se va a hacer es manipular el DOM pero dependiendo de la informacion que nos de la api.
+    Como los elementos de la imagen es un array se recorre con data.forEach
+    Se va a crear toda la estructura en el js para ver la imagen favorita:
+
+            
+            <article>
+            <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
+            <button>Sacar foto en favoritos</button>
+        </article>
+
+    Despues de escrito el codigo en js:
+
+            const article = document.createElement("article");
+            const img = document.createElement("img");
+            const button = document.createElement("button");
+            const buttonText = documente.createTextNode("Sacar foto en favoritos");
+    
+    Ahora hay que empezar a devolvernos(como se hizo en el curso practico de frontend developer):
 
 
 

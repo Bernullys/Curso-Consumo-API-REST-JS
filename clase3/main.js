@@ -1,5 +1,5 @@
-const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2&x-api-key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
-const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favorites?sub_id&x-api-key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
+const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2&api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
+const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
 
 
 async function loadRandomDoggys () {
@@ -10,6 +10,7 @@ async function loadRandomDoggys () {
             throw new Error(`Error en la peticion a Randoms ${statusRandom}`);
         }
         const data = await response.json();
+        console.log("loadRandomDoggys")
         console.log(data);  
 
         const doggyPictures1 = document.querySelector(".imagen1");
@@ -34,6 +35,26 @@ async function loadFavouriteDoggys () {
             throw new Error (`Error en la petición a Favorites: ${statusFavourites}`);
         }
         const data = await response.json();
+        console.log("Favoritos")
+        console.log(data);
+
+        data.forEach(doggy => {
+            const section = document.getElementById("favoriteDogs");
+            const article = document.createElement("article");
+            const img = document.createElement("img");
+            const button = document.createElement("button");
+            const buttonText = document.createTextNode("Sacar foto de favoritos");
+            
+            img.src = doggy.image.url
+            img.width = 150;
+            button.appendChild(buttonText);
+            article.appendChild(img);
+            article.appendChild(button);
+            section.appendChild(article);
+
+            
+        });
+
     } catch (error) {
         const errorNodoFavourites = document.getElementById("error-in-favorites");
         errorNodoFavourites.innerHTML = `Error: ${error.message}`;
@@ -41,23 +62,23 @@ async function loadFavouriteDoggys () {
     };
 };
 
-async function saveFavouriteDoggys () {
-    try {
-        const response = await fetch(API_URL_FAVOURITES, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                image_id: "aIYnbVDoBJ"
-            }),
-        });
+async function saveFavouriteDoggy (id) {
 
-        console.log("Save")
-        console.log(response)
-    } catch (error) {
-        throw new Error ("OH OH");
-    }
+    const response = await fetch(API_URL_FAVOURITES, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            image_id: id,
+        }),
+    });
+
+    const data = await response.json();
+
+    console.log("Save")
+    console.log(response)
+
 }
 
 
