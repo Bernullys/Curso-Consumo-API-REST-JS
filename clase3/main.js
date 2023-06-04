@@ -10,7 +10,7 @@ async function loadRandomDoggys () {
             throw new Error(`Error en la peticion a Randoms ${statusRandom}`);
         }
         const data = await response.json();
-        console.log(data);
+        console.log(data);  
 
         const doggyPictures1 = document.querySelector(".imagen1");
         doggyPictures1.src = data[0].url;
@@ -26,7 +26,7 @@ async function loadRandomDoggys () {
     };
 };
 
-async function loadFavouritesDoggys () {
+async function loadFavouriteDoggys () {
     try {
         const response = await fetch(API_URL_FAVOURITES);
         const statusFavourites = response.status;
@@ -38,10 +38,28 @@ async function loadFavouritesDoggys () {
         const errorNodoFavourites = document.getElementById("error-in-favorites");
         errorNodoFavourites.innerHTML = `Error: ${error.message}`;
         throw new Error("Catch de loadFavouritesDoggys tomo un error-Este mensaje es para verlo en consola")
-        
-
     };
 };
 
+async function saveFavouriteDoggys () {
+    try {
+        const response = await fetch(API_URL_FAVOURITES, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                image_id: "aIYnbVDoBJ"
+            }),
+        });
+
+        console.log("Save")
+        console.log(response)
+    } catch (error) {
+        throw new Error ("OH OH");
+    }
+}
+
+
 loadRandomDoggys();
-loadFavouritesDoggys();
+loadFavouriteDoggys();

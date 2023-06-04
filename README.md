@@ -100,6 +100,18 @@ Clase 9: GET: leyendo perritos favoritos.
 
     Aparte: si sehace console.log(data) puedo ver el objeto y cuales son sus propiedades.
 
+    OJO: odavia no he puesto a funcionar la funcion de cargar a favoritos pero por lo que veo el si... pero no ha dicho como.
+
+Clase 10: POST: guardando los perritos favoritos.
+    Ahora se va a hacer la funcion para guardar las imagenes favoritas.
+    Necesitamos la url del endpoint de la api a donde tenemos que enviar esta información.
+    El endpoint es el mismo (por eso se utiliza la misma url) pero el post se hace diferente. Porque cuando llamamos a fetch y no queremos utilizarla por defecto (que seria el GET). Tenemos que enviarle un objeto que tenga toda la info que tengamos que enviarle a la api.
+    Se agrega el objeto como segundo parametro de la funcion para guardar. Y en el html hay que llamarla con un boton. En este caso se hace con onclick="nombreDeLaFuncion".
+        El objeto del segundo argumento:
+            body hay que especificarle un string porque ese body que esta en el backend no sabemos en que lenguaje esta entonces para estar seguro de que entienda hay que hacerlo con la funcion JSON.stringify es para que lea como un documento de texto. Y dentro de esa funcion se envia el objeto.
+        Queda pendiente la explicación de los elementos del objeto del segundo argumento.
+
+
 
 
 
