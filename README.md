@@ -140,7 +140,11 @@ Clase 11: Consultas a la API para escribir HTML dinámico.
         Despues agregarle la funcion .onclick que llame a la funcion saveFavouriteDoggy con el parametro data.id. Peroooooooooo asiendolo asi las funciones se estan llamando inmediatamente cuando se carga la pagina por lo que de debe meter esa funcion dentro de otra funcion. Y se hizo con arrow function.
 
 
+Clase 12: Delete: borrando doggys favoritos.
+    Primero tenemos terminar de hacer los ajustes cuando se agreguen y no tengamos que refrescar la pagina.
+    Lo que se hace es llamar a la funcion loadFavouriteDoggy inmediatamente despues se haya guardado. Peeeeeeeroooooooo antes hay que hacer un ajuste en la funcion de loadFavouriteDoggy: tenemos que limpiar todos los articulos. Pero hay un titulo que se borraria tambien, entonces habria que crearlo despues de limpiar todo (esto se hace antes del data.forEach). Tambien hay que llamar la seccion que estaba en el data.forEach antes para que no se borre.
 
+    
 
   
 

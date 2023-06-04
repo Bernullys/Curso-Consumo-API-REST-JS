@@ -33,7 +33,7 @@ async function loadRandomDoggys () {
     };
 };
 
-async function loadFavouriteDoggys () {
+async function loadFavouriteDoggy () {
     try {
         const response = await fetch(API_URL_FAVOURITES);
         const statusLoadFavourites = response.status;
@@ -44,8 +44,14 @@ async function loadFavouriteDoggys () {
         console.log("Favoritos")
         console.log(data);
 
+        const section = document.getElementById("favoriteDogs");
+        section.innerHTML = "";
+        const h2 = document.createElement("h2");
+        const h2Text = document.createTextNode("Doggys Favoritos");
+        h2.appendChild(h2Text);
+        section.appendChild(h2);
+
         data.forEach(doggy => {
-            const section = document.getElementById("favoriteDogs");
             const article = document.createElement("article");
             const img = document.createElement("img");
             const button = document.createElement("button");
@@ -57,7 +63,6 @@ async function loadFavouriteDoggys () {
             article.appendChild(img);
             article.appendChild(button);
             section.appendChild(article);
-
         });
     } catch (error) {
         const errorNodoFavourites = document.getElementById("error-in-favorites");
@@ -87,15 +92,16 @@ async function saveFavouriteDoggy (id) {
     
         console.log("Save");
         console.log(response);
+        console.log("Doggy guardado en favoritos")
 
     } catch (error) {
         const errorNodeSaved = document.getElementById("error-in-saving");
         errorNodeSaved.innerHTML = `Error: ${error.message}`;
         throw new Error ("Catch saveFavouriteDoggy error")
     };
-
+    loadFavouriteDoggy ();
 };
 
 
 loadRandomDoggys();
-loadFavouriteDoggys();
+loadFavouriteDoggy();
