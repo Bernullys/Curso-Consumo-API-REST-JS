@@ -173,7 +173,7 @@ Clase 12: Delete: borrando doggys favoritos.
     Ademas, viendo los comentarios arregle otro detalle que tenia en el objeto del POST. Cambie image_id: id por image_id: `${id}`
     
 
-Clase 13: ¿Que son los Headers HTTP? Los headers son caracteristicas que se agregan para que el backend pueda entender la peticion que estamos haciendo (es codigo interno). Se utilizan para indicar como se debe entregar la informacion.
+Clase 13: ¿Que son los Headers HTTP? Los headers son caracteristicas que se agregan para que el backend pueda entender la peticion que estamos haciendo (es codigo interno). Se utilizan para indicar como se debe entregar la informacion. Link para saber que son los headers: https://apipheny.io/api-headers/
 Tipos de Headers HTTP:
     Content Type
     Authorization
@@ -182,6 +182,15 @@ Tipos de Headers HTTP:
     Etc.
 
 
+Clase 14: Header de autorizacion.
+    Recordando la clase 6, se habia dicho de que para enviar las key al backend teniamos:
+        Query parameter: ?api_key=sdfdwdfdsewfgfe. (ya lo vimos).
+        Authorization Header: X-API-Key: ABC123 (lo vamos a ver).
+    La diferencia es que ya no habria que escribir la clave en la url, sino que se agregara en el headers.
+    Se hizo como aparece en el js. Ojo: Tuve que ponerla en la funcion de save tambien porque estaba utilizando la misma const url.
+    Lo hicimos tambien para el delete.
+
+    Ojo: Quitar la key del link esta bien pero como seguridad da lo mismo porque cualquiera puede ver el headers con la api key. Para eso hay cursos de seguridad como el de OAuth 2.0.
 
 
     

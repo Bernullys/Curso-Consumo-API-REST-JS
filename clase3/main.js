@@ -1,5 +1,5 @@
-const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2&api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
-const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
+const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2";
+const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites";
 const API_URL_FAVOURITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc`;
 
 
@@ -35,7 +35,12 @@ async function loadRandomDoggys () {
 
 async function loadFavouriteDoggy () {
     try {
-        const response = await fetch(API_URL_FAVOURITES);
+        const response = await fetch(API_URL_FAVOURITES, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+            },
+        });
         const statusLoadFavourites = response.status;
         if (statusLoadFavourites !== 200) {
             throw new Error (`Error en la petición a Favorites: ${statusLoadFavourites}`);
@@ -78,6 +83,7 @@ async function saveFavouriteDoggy (id) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
             },
             body: JSON.stringify({
                 image_id: `${id}`,
@@ -108,6 +114,9 @@ async function deleteFavouriteDoggy (id) {
     try {
         const response = await fetch(API_URL_FAVOURITES_DELETE(id), {
             method: "DELETE",
+            headers: {
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+            }
         });
         const statusDeleteFavourites = response.status;
         if (statusDeleteFavourites !== 200) {
