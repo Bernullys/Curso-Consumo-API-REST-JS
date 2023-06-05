@@ -1,5 +1,6 @@
 const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2&api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
 const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
+const API_URL_FAVOURITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc`;
 
 
 async function loadRandomDoggys () {
@@ -60,6 +61,7 @@ async function loadFavouriteDoggy () {
             img.src = doggy.image.url
             img.width = 150;
             button.appendChild(buttonText);
+            button.onclick = () => deleteFavouriteDoggy(doggy.id);
             article.appendChild(img);
             article.appendChild(button);
             section.appendChild(article);
@@ -79,7 +81,7 @@ async function saveFavouriteDoggy (id) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                image_id: id,
+                image_id: `${id}`,
             }),
         });
 
@@ -102,6 +104,14 @@ async function saveFavouriteDoggy (id) {
     loadFavouriteDoggy ();
 };
 
+async function deleteFavouriteDoggy (id) {
+
+    const response = await fetch(API_URL_FAVOURITES_DELETE(id), {
+        method: "DELETE",
+    });
+    const data = await response.text();
+    loadFavouriteDoggy ()
+};
 
 loadRandomDoggys();
 loadFavouriteDoggy();

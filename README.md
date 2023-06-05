@@ -144,6 +144,38 @@ Clase 12: Delete: borrando doggys favoritos.
     Primero tenemos terminar de hacer los ajustes cuando se agreguen y no tengamos que refrescar la pagina.
     Lo que se hace es llamar a la funcion loadFavouriteDoggy inmediatamente despues se haya guardado. Peeeeeeeroooooooo antes hay que hacer un ajuste en la funcion de loadFavouriteDoggy: tenemos que limpiar todos los articulos. Pero hay un titulo que se borraria tambien, entonces habria que crearlo despues de limpiar todo (esto se hace antes del data.forEach). Tambien hay que llamar la seccion que estaba en el data.forEach antes para que no se borre.
 
+    Ahora vamos a hacer la funcion para borrar. Buscar en la documentacion el endPoint.
+    Añadir una funcion para hacer delete.
+    En la url tenemos que añadir el id de la imagen que se quiere eliminar. Para eso en la const que guardamos la url se agrega un arrow function y se utilizan template literals, para agregar el id dinamicamente.
+    La documentacion no pide nada especial para el objeto, por eso que queda solo el method : "DELETE".
+    Ahora hay que llamar la funcion para delete. Hay que llamarla en el data.forEach cuando se cargan los doggys favoritos, donde creamos el boton que dice: Sacar foto de favoritos, ponerle la funcionalidad onclick que llame la funcion. Se hace con un arrow function con el id como argumento.
+    Me encontre con un error que ya le habia pasado a alguien y dejo la respuesta en los comentarios de preguntas:
+        El problema en consola que termina con “…is not valid JSON” probablemente sea al intentar convertir la respuesta del servidor en un objeto de JS utilizando el metodo .json(), por alguna razon el servidor no esta respondiendo con objetos JSON cuando se hacen peticiones con errores (y por ende devolviendo estados 4xx). La solucion que encontre es en lugar de utilizar el metodo .json() utiliza el metodo .text() para convertir la respuesta del servidor solo cuando ocurra un error. Ejemplo:
+
+                                        asyncfunctiondeleteFavoriteMichi(id){
+                                    const res = await fetch(API_URL_DELETE_FAVORITE(id), {
+                                        method: 'DElETE',
+                                        headers: {
+                                            "x-api-key": api_key
+                                        }
+                                    })
+
+                                //cuando el estado de la peticion es distinto de 200 utilizo .text(), en caso contrario utilizo .json()
+                                    if(res.status !==200){
+                                        const error = await res.text()
+                                        spanError.innerHTML = "ocurrio un error: " + error
+                                    }else{
+                                        const data = await res.json();
+                                        console.log('delete', data)
+                                        loadFavoritesMichis()
+                                    }
+                                }
+    Ademas, viendo los comentarios arregle otro detalle que tenia en el objeto del POST. Cambie image_id: id por image_id: `${id}`
+    
+
+
+
+
     
 
   
