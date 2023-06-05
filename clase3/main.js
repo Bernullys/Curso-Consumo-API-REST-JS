@@ -11,7 +11,7 @@ async function loadRandomDoggys () {
             throw new Error(`Error en la peticion a Randoms ${statusRandom}`);
         };
         const data = await response.json();
-        console.log("loadRandomDoggys")
+        console.log("loadRandomDoggys");
         console.log(data);  
 
         const doggyPictures1 = document.querySelector(".imagen1");
@@ -30,7 +30,6 @@ async function loadRandomDoggys () {
         const errorNodo = document.getElementById("error-in-random");
         errorNodoRandom.innerHTML = `Error: ${error.message}`;
         throw new Error ("Catch de loadRandomsDoggys tomo un error-Este mensaje es para verlo en consola");
-        
     };
 };
 
@@ -42,7 +41,7 @@ async function loadFavouriteDoggy () {
             throw new Error (`Error en la petición a Favorites: ${statusLoadFavourites}`);
         }
         const data = await response.json();
-        console.log("Favoritos")
+        console.log("Favoritos");
         console.log(data);
 
         const section = document.getElementById("favoriteDogs");
@@ -69,7 +68,7 @@ async function loadFavouriteDoggy () {
     } catch (error) {
         const errorNodoFavourites = document.getElementById("error-in-favorites");
         errorNodoFavourites.innerHTML = `Error: ${error.message}`;
-        throw new Error("Catch de loadFavouritesDoggys tomo un error-Este mensaje es para verlo en consola")
+        throw new Error("Catch de loadFavouritesDoggys tomo un error-Este mensaje es para verlo en consola");
     };
 };
 
@@ -94,23 +93,39 @@ async function saveFavouriteDoggy (id) {
     
         console.log("Save");
         console.log(response);
-        console.log("Doggy guardado en favoritos")
+        console.log("Doggy guardado en favoritos");
 
     } catch (error) {
         const errorNodeSaved = document.getElementById("error-in-saving");
         errorNodeSaved.innerHTML = `Error: ${error.message}`;
-        throw new Error ("Catch saveFavouriteDoggy error")
+        throw new Error ("Catch saveFavouriteDoggy error");
     };
     loadFavouriteDoggy ();
 };
 
 async function deleteFavouriteDoggy (id) {
 
-    const response = await fetch(API_URL_FAVOURITES_DELETE(id), {
-        method: "DELETE",
-    });
-    const data = await response.text();
-    loadFavouriteDoggy ()
+    try {
+        const response = await fetch(API_URL_FAVOURITES_DELETE(id), {
+            method: "DELETE",
+        });
+        const statusDeleteFavourites = response.status;
+        if (statusDeleteFavourites !== 200) {
+            throw new Error (`Error eliminando de Favoritos ${statusDeleteFavourites}`)
+        };
+
+        const data = await response.text();
+        console.log("Delete");
+        console.log(response);
+        console.log("Doggy eliminado de favoritos");
+
+    } catch (error) {
+        const errorNodeDeleted = document.getElementById("error-deleting");
+        errorNodeDeleted.innerHTML = `Error: ${error.message}`;
+        throw new Error ("Catch deleteDoggy error");
+    };
+
+    loadFavouriteDoggy ();
 };
 
 loadRandomDoggys();

@@ -173,6 +173,14 @@ Clase 12: Delete: borrando doggys favoritos.
     Ademas, viendo los comentarios arregle otro detalle que tenia en el objeto del POST. Cambie image_id: id por image_id: `${id}`
     
 
+Clase 13: ¿Que son los Headers HTTP? Los headers son caracteristicas que se agregan para que el backend pueda entender la peticion que estamos haciendo (es codigo interno). Se utilizan para indicar como se debe entregar la informacion.
+Tipos de Headers HTTP:
+    Content Type
+    Authorization
+    Cookies
+    Location
+    Etc.
+
 
 
 
