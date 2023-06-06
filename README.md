@@ -255,7 +255,54 @@ Clase 17: Axios: libreria de JavaScript para consumir APIs.
     En el codigo  vamos a cambiar una de las funciones con axios. Para enlazarlo se puede descargar o tambien enlazar con una etiqueta sript(es lo que vamos a hacer).
     Hay que crear una instancia de Axios. (ver las primeras lineas).
     Vamos a cambiar la funcion save.
-    No me funciona. Me dice que axios is not defined.
+    No me funciona. Me dice que axios is not defined. En la clase aparecen los archivos del profe --- para probar.
+
+
+Clase 18: CORS, caché, redirect y tu propio clon de fetch.
+    Otras propiedades de fetch:
+        Mode: (tenemos que saber como esta en el backend)
+            cors
+            no-cors         (por defecto)
+            same.origin
+        
+            Nosotros tambien podemos decirle a fetch con quien queremos intercambiar informacion.
+
+        Caché: (capacidad de recordar la info que ya hemos traido anteriormente).
+            default
+            no-store
+            reload
+            no-cache
+            force-cache
+            only-if-cached
+
+        El backend tambien puede hacer su propio cache.
+        Se puede especificar cuando queremos o no cache.
+        Recomendacion: no utilizar.
+
+        Redirect: (que hacer cuando nos encontremos con un status code de 300)
+            follow
+            error
+            manual
+        
+    Reto: tu propio clon de fetch. Analizar el codigo de fetch. Esta en la descripcion de la clase.
+
+    Fetch por dentro:
+        new Request()
+        new Headers()
+        new Response()
+
+
+Clase 19: GraphQL, Web Sockets y Web 3.0: el mundo mas alla de REST.
+    sendBeacon
+        No espera una respuesta del servidor.
+        Es buena idea para analytics.
+    
+    GraphQL
+        Empowered clients.
+        All requests on the same endpoint.
+        
+
+    
 
 
 
