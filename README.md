@@ -224,7 +224,24 @@ Clase 15: Header de Content-Type.
             text/xml
 
 Clase 16: FormData: publicando imagenes de doggys.
+    Ojo: ver diferencia entre los content types y los mime type.
+    Sabiendo esa diferencia se va a utilizar FormData.
+
+    Vamos a utilizar una instancia del prototipo FormData que ya viene en los navegadores. Vamos a agarrar los valores que hayan ingresado los usuarios desde un input o lo que sea del html.
+
     Necesitamos agregar un formulario.
+    Un formulario por defecto trae un atributo action="" para colocar un link o url en donde se enviaria la informacion del formulario. Eso se lo quitamos y le ponemos un selector id.
+    Necesitamos colocar un input dentro del formulario, con un id="file" y tambien es super importante colocarle un type="file" y un name="file" (eso lo pide la documentacion de la api), el name es para que FormData sepa cual es el archivo que esta guardando, porque lo guarda como un objeto con su valor.
+    Ya tenemos el input, ahora falta un boton para enviar el formulario. Tenemos que asignarle que sea type="button" para que envie el valor. Ademas al boton se le coloca el atributo onclick="" llamando la funcion que va a subir la foto con ayuda del FormData.
+    Ahora se crea la funcion que subira la foto.
+    Se crean instancias del prototipo FormData que ya viene en JS. (Es una clase que se utiliza en los form y tiene varios metodos como set y get).
+    Se llama desde el js al form que esta en el html.
+    La instancia la llamamos formData. Perooo hay que colocarle el argumento form que estamos llamando del html. Asi agarrara todos los valores que ingresamos en los inputs y los va a agregar a FormData.
+    Hayyyy que ver en la documentacion cual es la url para subir archivos. Despues de agarrar todo con el FormData hay que traer la info de la api.
+    Se agrega el post pero esta vez no se necesita el content type (porque el FormData lo hace automaticamente, ademas el servidor no lo soportaba) y tampoco stringify el body (esto porque estamos utilizando el FormData, se coloca en el body: el formulario).
+    Al final se llamo la funcion de guardar en favoritos con el id de la foto que estamos subiendo para poder verla de una vez entre las favoritas.
+
+
     
 
 
