@@ -223,5 +223,8 @@ Clase 15: Header de Content-Type.
             text/plain
             text/xml
 
-  
+Clase 16: FormData: publicando imagenes de doggys.
+    Necesitamos agregar un formulario.
+    
+
 

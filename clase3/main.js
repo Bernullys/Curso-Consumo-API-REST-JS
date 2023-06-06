@@ -1,7 +1,7 @@
 const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2";
 const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites";
 const API_URL_FAVOURITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc`;
-
+const API_URL_UPLOAD = "https://api.thedogapi.com/v1/images/upload";
 
 async function loadRandomDoggys () {
     try {
@@ -136,6 +136,26 @@ async function deleteFavouriteDoggy (id) {
 
     loadFavouriteDoggy ();
 };
+
+async function uploadDoggyPhoto() {
+    const form = document.getElementById("uploadingForm");
+    const formData = new FormData(form);
+
+    console.log(formData.get("file"));
+
+    const response = await fetch(API_URL_UPLOAD, {
+        method: "POST",
+        headers: {
+            // "Content Type": "multipart/form-data",
+            "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+        },
+        body: formData,
+    });
+
+    const data = await response.json();
+    console.log("Foto cargada a la api");
+    saveFavouriteDoggy(data.id);
+}
 
 loadRandomDoggys();
 loadFavouriteDoggy();
