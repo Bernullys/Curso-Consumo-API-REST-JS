@@ -193,7 +193,35 @@ Clase 14: Header de autorizacion.
     Ojo: Quitar la key del link esta bien pero como seguridad da lo mismo porque cualquiera puede ver el headers con la api key. Para eso hay cursos de seguridad como el de OAuth 2.0.
 
 
+Clase 15: Header de Content-Type.
+    Este header es para que el frontend y el backend sepan en que idioma se estan hablando. Hay que saber que tipo de content type se esta usando en el backend para colocarlo en el frontend.
+    Hay muchos tipos de content type.
+        Application:
+            application/json
+            application/xml
+            application/zip
+            application/x-www-forum-urlencoded    ---este es muy usado.
     
+    Ademas, tambien se pueden enviar otros tipos de archivo como audio, imagenes, excel, multipart, entre otros.
+
+        Audio:
+            audio/mpeg
+            audio/x-ms-wma
+            audio/vnd.rn-realaudio
+            audio/x-wav
+        
+        Multipart:
+            multipart/mixed
+            multipart/alternative
+            multipart/related
+            multipart/form-data
+
+        Text:
+            text/css
+            text/csv
+            text/html
+            text/plain
+            text/xml
 
   
 
