@@ -297,10 +297,48 @@ Clase 19: GraphQL, Web Sockets y Web 3.0: el mundo mas alla de REST.
         No espera una respuesta del servidor.
         Es buena idea para analytics.
     
-    GraphQL
+    GraphQL (simple en frontend, complejo en backend)
         Empowered clients.
         All requests on the same endpoint.
+    
+    Web Sockets
+        Dejar el "Tunel abierto".
+        Útil para aplicaciones real-time.
+        Comunicacion instantanea.
+    
+    Web 3.0
+        Dapps: aplicaciones descentralizadas.
+
+        Aplicaciones Tradicionales:
+            Cliente:
+                JS
+                React
+                Angular
+                View
+            Lógica:
+                Node
+                Go
+                Rubi
+                Python
+            Persistencia:
+                AWS
+                Google Platform
         
+        Aplicaciones Descentralizadas:
+            Cliente:
+                Wjs
+                etherjs
+                whisper
+            Logica:
+                Solidity
+            Persistencia:
+                Op
+                IPFS
+                Polygon
+
+
+    
+    
 
     
 
