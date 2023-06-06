@@ -242,6 +242,23 @@ Clase 16: FormData: publicando imagenes de doggys.
     Al final se llamo la funcion de guardar en favoritos con el id de la foto que estamos subiendo para poder verla de una vez entre las favoritas.
 
 
+Clase 17: Axios: libreria de JavaScript para consumir APIs.
+    Existen herramientas que existen para utilizar fetch en entornos donde no se soporta fetch. Axios es una de las mejores.
+    Algunas son:
+        Axios
+        Trae.js
+        node-fetch
+        request
+    Ojo: cuando node soporte fetch estas herramientas ya no serian necesarias. OJOOOO parece que ya se puedeeeee.
+
+    Hay un repositorio de Axios y su pagina para explicarlo. En resumen hace varias cosas de una sola vez, con menos codigo y mas simple.
+    En el codigo  vamos a cambiar una de las funciones con axios. Para enlazarlo se puede descargar o tambien enlazar con una etiqueta sript(es lo que vamos a hacer).
+    Hay que crear una instancia de Axios. (ver las primeras lineas).
+    Vamos a cambiar la funcion save.
+    No me funciona. Me dice que axios is not defined.
+
+
+
     
 
 
