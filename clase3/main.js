@@ -1,7 +1,4 @@
-const instanceApi = axios.create({
-    baseURL: "https://api.thedogapi.com/v1",
-});
-instanceApi.defaults.headers.common["X-API-KEY"] = "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc";
+
 
 const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2";
 const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites";
@@ -84,30 +81,26 @@ async function loadFavouriteDoggy () {
 
 async function saveFavouriteDoggy (id) {
     try {
-        const { data, status} = await instanceApi.post("/favourites", {
-            image_id: id,
+        const response = await fetch(API_URL_FAVOURITES, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+            },
+            body: JSON.stringify({
+                image_id: `${id}`,
+            }),
         });
-    // try {
-    //     const response = await fetch(API_URL_FAVOURITES, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
-    //         },
-    //         body: JSON.stringify({
-    //             image_id: `${id}`,
-    //         }),
-    //     });
 
-        // const statusSaveFavourites = response.status;
-        // if (statusSaveFavourites !== 200) {
-        //     throw new Error (`Error guardando el Favorito ${statusSaveFavourites}`)
-        // };
+        const statusSaveFavourites = response.status;
+        if (statusSaveFavourites !== 200) {
+            throw new Error (`Error guardando el Favorito ${statusSaveFavourites}`)
+        };
 
-    //    const data = await response.json();
+       const data = await response.json();
     
         console.log("Save");
-        // console.log(response);
+        console.log(response);
         console.log("Doggy guardado en favoritos");
 
     } catch (error) {
