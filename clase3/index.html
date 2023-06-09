@@ -4,71 +4,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConsumoApiRest</title>
+    <title>Doggys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;1,500;1,700&family=Kalam:wght@300;400;700&family=Laila:wght@300;500;700&family=Quicksand:wght@300;500;700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
     <script src="./main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 <body>
-    <h1 class="title">Perritos Perritos</h1>
 
-    <section id="randomDogs">
+    <section class="main-container">
 
-        <h2> Perritos aleatorios </h2>
+        <section class="navbar-container">
+            <nav>
+                <ul>
+                    <li>
+                        <a>Menú</a>
+                    </li>
+
+                    <li>
+                        <a>Us The Dog Lover's</a>
+                    </li>
+
+                    <li>
+                        <a>Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+
+        <h1 class="title">U s T h e D o g L o v e r ' s</h1>
+
+        <h2 class="subtitle"> Perritos aleatorios </h2>
 
         <span id="error-in-random"></span>
 
-        <article>
+        <section id="randomDogs">
 
-            <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
-            <button id="save-btn1">Guardar random foto en favoritos</button>
+            <article>
+    
+                <img class="imagen1" alt="Foto de un perrito aleatorio">
+                <button id="save-btn1">Guardar random foto en favoritos</button>
+    
+            </article>
+    
+            <article>
+    
+                <img class="imagen2" alt="Foto de un perrito aleatorio">
+                <button id="save-btn2">Guardar random foto en favoritos</button>
+    
+            </article>
+                
+            <article>
+    
+                <img class="imagen3" alt="Foto de un perrito aleatorio">
+                <button id="save-btn3">Guardar random foto en favoritos</button>
+    
+            </article>
+                
+            <article>
+    
+                <img class="imagen4" alt="Foto de un perrito aleatorio">
+                <button id="save-btn4">Guardar random foto en favoritos</button>
+    
+            </article>
+    
+        </section>
 
-        </article>
+        <button class="refresh-button" onclick="loadRandomDoggys()"> More Doggys </button>
+    
+    
+        <section id="uploadingDoggy">
+    
+            <h2> Sube la foto de tu doggy </h2>
+    
+            <form id="uploadingForm">
+                <input id="file" type="file" name="file" />
+                <button type="button" onclick="uploadDoggyPhoto()"> Subir la foto del Doggy </button>
+            </form>
+        </section>
+    
+    
+        <section id="favoriteDogs">
+    
+            <span id="error-in-favorites"></span>
+    
+            <h2>Perritos favoritos</h2>
+    
+            <span id="error-in-saving"></span>
+    
+            <article>
+    
+                <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
+                <button>Sacar foto en favoritos</button>
+    
+            </article>
+            
+        </section>
+    
+        <span id="error-deleting"></span>
 
-        <article>
 
-            <img width=250px class="imagen2" alt="Foto de un perrito aleatorio">
-            <button id="save-btn2">Guardar random foto en favoritos</button>
-
-        </article>
-
-        <button class="refresh-button" onclick="loadRandomDoggys()"> Refresh </button>
 
     </section>
-
-
-    <section id="uploadingDoggy">
-
-        <h2> Sube la foto de tu doggy </h2>
-
-        <form id="uploadingForm">
-            <input id="file" type="file" name="file" />
-            <button type="button" onclick="uploadDoggyPhoto()"> Subir la foto del Doggy </button>
-        </form>
-    </section>
-
-
-    <section id="favoriteDogs">
-
-        <span id="error-in-favorites"></span>
-
-        <h2>Perritos favoritos</h2>
-
-        <span id="error-in-saving"></span>
-
-        <article>
-
-            <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
-            <button>Sacar foto en favoritos</button>
-
-        </article>
-        
-    </section>
-
-    <span id="error-deleting"></span>
-
-
 
 
 </body>

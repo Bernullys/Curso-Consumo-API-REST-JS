@@ -1,6 +1,6 @@
 
 
-const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=2";
+const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=4";
 const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites";
 const API_URL_FAVOURITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc`;
 const API_URL_UPLOAD = "https://api.thedogapi.com/v1/images/upload";
@@ -22,8 +22,16 @@ async function loadRandomDoggys () {
         const doggyPictures2 = document.querySelector(".imagen2");
         doggyPictures2.src = data[1].url;
 
+        const doggyPictures3 = document.querySelector(".imagen3");
+        doggyPictures3.src = data[2].url;
+
+        const doggyPictures4 = document.querySelector(".imagen4");
+        doggyPictures4.src = data[3].url;
+
         const buttonSaveRandomtoFavourites1 = document.getElementById("save-btn1");
         const buttonSaveRandomtoFavourites2 = document.getElementById("save-btn2");
+        const buttonSaveRandomtoFavourites3 = document.getElementById("save-btn3");
+        const buttonSaveRandomtoFavourites4 = document.getElementById("save-btn4");
         buttonSaveRandomtoFavourites1.onclick = () => saveFavouriteDoggy(data[0].id);
         buttonSaveRandomtoFavourites2.onclick = () => saveFavouriteDoggy(data[1].id);
 
