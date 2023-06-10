@@ -1,5 +1,3 @@
-
-
 const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=4";
 const API_URL_FAVOURITES = "https://api.thedogapi.com/v1/favourites";
 const API_URL_FAVOURITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc`;
@@ -34,7 +32,8 @@ async function loadRandomDoggys () {
         const buttonSaveRandomtoFavourites4 = document.getElementById("save-btn4");
         buttonSaveRandomtoFavourites1.onclick = () => saveFavouriteDoggy(data[0].id);
         buttonSaveRandomtoFavourites2.onclick = () => saveFavouriteDoggy(data[1].id);
-
+        buttonSaveRandomtoFavourites3.onclick = () => saveFavouriteDoggy(data[2].id);
+        buttonSaveRandomtoFavourites4.onclick = () => saveFavouriteDoggy(data[3].id);
 
     } catch (error) {
         const errorNodo = document.getElementById("error-in-random");
@@ -61,24 +60,28 @@ async function loadFavouriteDoggy () {
 
         const section = document.getElementById("favoriteDogs");
         section.innerHTML = "";
-        const h2 = document.createElement("h2");
-        const h2Text = document.createTextNode("Doggys Favoritos");
-        h2.appendChild(h2Text);
-        section.appendChild(h2);
 
         data.forEach(doggy => {
             const article = document.createElement("article");
             const img = document.createElement("img");
             const button = document.createElement("button");
-            const buttonText = document.createTextNode("Sacar foto de favoritos");
+            const buttonText = document.createTextNode("Delete from favorites");
             
             img.src = doggy.image.url
-            img.width = 150;
+            img.width = 400;
+            img.height = 400;
             button.appendChild(buttonText);
             button.onclick = () => deleteFavouriteDoggy(doggy.id);
             article.appendChild(img);
             article.appendChild(button);
             section.appendChild(article);
+            section.style.display = "flex";
+            section.style.flexWrap = "wrap";
+            article.style.display = "flex";
+            article.style.flexDirection = "column";
+            button.style.height = "25px";
+            button.style.backgroundColor = "#33FFE6";
+            button.style.borderRadius = "8px";
         });
     } catch (error) {
         const errorNodoFavourites = document.getElementById("error-in-favorites");
@@ -166,6 +169,60 @@ async function uploadDoggyPhoto() {
     console.log("Foto cargada a la api");
     saveFavouriteDoggy(data.id);
 }
+
+
+async function loadYourDoggy () {
+    try {
+        const response = await fetch(API_URL_FAVOURITES, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+            },
+        });
+        const statusLoadFavourites = response.status;
+        if (statusLoadFavourites !== 200) {
+            throw new Error (`Error en la petición a Favorites: ${statusLoadFavourites}`);
+        }
+        const data = await response.json();
+        console.log("Favoritos");
+        console.log(data);
+
+        const section = document.getElementById("your-doggys");
+        section.innerHTML = "";
+
+        data.forEach(doggy => {
+            const article = document.createElement("article");
+            const img = document.createElement("img");
+            const button = document.createElement("button");
+            const buttonText = document.createTextNode("Delete from favorites");
+            
+            img.src = doggy.image.url
+            img.width = 400;
+            img.height = 400;
+            button.appendChild(buttonText);
+            button.onclick = () => deleteFavouriteDoggy(doggy.id);
+            article.appendChild(img);
+            article.appendChild(button);
+            section.appendChild(article);
+            section.style.display = "flex";
+            section.style.flexWrap = "wrap";
+            article.style.display = "flex";
+            article.style.flexDirection = "column";
+            button.style.height = "25px";
+            button.style.backgroundColor = "#33FFE6";
+            button.style.borderRadius = "8px";
+        });
+    } catch (error) {
+        const errorNodoFavourites = document.getElementById("error-in-favorites");
+        errorNodoFavourites.innerHTML = `Error: ${error.message}`;
+        throw new Error("Catch de loadFavouritesDoggys tomo un error-Este mensaje es para verlo en consola");
+    };
+};
+
+
+
+
+
 
 loadRandomDoggys();
 loadFavouriteDoggy();

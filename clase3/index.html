@@ -38,7 +38,7 @@
 
         <h1 class="title">U s T h e D o g L o v e r ' s</h1>
 
-        <h2 class="subtitle"> Perritos aleatorios </h2>
+        <h2 class="subtitle">Random Doggys</h2>
 
         <span id="error-in-random"></span>
 
@@ -47,70 +47,70 @@
             <article>
     
                 <img class="imagen1" alt="Foto de un perrito aleatorio">
-                <button id="save-btn1">Guardar random foto en favoritos</button>
+                <button id="save-btn1">Save this Doggy in favorites</button>
     
             </article>
     
             <article>
     
                 <img class="imagen2" alt="Foto de un perrito aleatorio">
-                <button id="save-btn2">Guardar random foto en favoritos</button>
+                <button id="save-btn2">Save this Doggy in favorites</button>
     
             </article>
                 
             <article>
     
                 <img class="imagen3" alt="Foto de un perrito aleatorio">
-                <button id="save-btn3">Guardar random foto en favoritos</button>
+                <button id="save-btn3">Save this Doggy in favorites</button>
     
             </article>
                 
             <article>
     
                 <img class="imagen4" alt="Foto de un perrito aleatorio">
-                <button id="save-btn4">Guardar random foto en favoritos</button>
+                <button id="save-btn4">Save this Doggy in favorites</button>
     
             </article>
     
         </section>
 
         <button class="refresh-button" onclick="loadRandomDoggys()"> More Doggys </button>
+
+        <h2 class="subtitle">Your favorites Doggys</h2>
+
+        <span id="error-in-favorites"></span>
     
-    
-        <section id="uploadingDoggy">
-    
-            <h2> Sube la foto de tu doggy </h2>
-    
-            <form id="uploadingForm">
-                <input id="file" type="file" name="file" />
-                <button type="button" onclick="uploadDoggyPhoto()"> Subir la foto del Doggy </button>
-            </form>
-        </section>
-    
+        <span id="error-in-saving"></span>
     
         <section id="favoriteDogs">
     
-            <span id="error-in-favorites"></span>
-    
-            <h2>Perritos favoritos</h2>
-    
-            <span id="error-in-saving"></span>
-    
-            <article>
+            <!-- <article>
     
                 <img width=250px class="imagen1" alt="Foto de un perrito aleatorio">
                 <button>Sacar foto en favoritos</button>
     
-            </article>
+            </article> -->
             
         </section>
-    
+
         <span id="error-deleting"></span>
 
+        <section id="uploadingDoggy">
+    
+            <h2 class="subtitle">Upload your Doggys Picture</h2>
+    
+            <form id="uploadingForm">
+                <input class="upload-input" placeholder="Select a file"id="file" type="file" name="file"/>
+                <button class="upload-button" type="button" onclick="uploadDoggyPhoto()">Upload Doggys Picture</button>
+            </form>
+        </section>
 
+        <section id="your-doggys">
+
+
+        </section>
 
     </section>
-
 
 </body>
 </html>
