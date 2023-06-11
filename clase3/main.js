@@ -167,11 +167,42 @@ async function uploadDoggyPhoto() {
 
     const data = await response.json();
     console.log("Foto cargada a la api");
-    saveFavouriteDoggy(data.id);
-}
+    saveOwnDoggy(data.id);
+};
 
+async function saveOwnDoggy (id) {
+    try {
+        const response = await fetch(API_URL_FAVOURITES, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
+            },
+            body: JSON.stringify({
+                image_id: `${id}`,
+            }),
+        });
 
-async function loadYourDoggy () {
+        const statusSaveOwn = response.status;
+        if (statusSaveOwn !== 200) {
+            throw new Error (`Error guardando el propio ${statusSaveOwn}`)
+        };
+
+       const data = await response.json();
+    
+        console.log("SaveOwn");
+        console.log(response);
+        console.log("Doggy guardado en Own Pictures");
+
+    } catch (error) {
+        const errorNodeSaved = document.getElementById("error-in-saving-own");
+        errorNodeSaved.innerHTML = `Error: ${error.message}`;
+        throw new Error ("Catch saveOwnDoggy error");
+    };
+    loadOwnDoggy ();
+};
+
+async function loadOwnDoggy () {
     try {
         const response = await fetch(API_URL_FAVOURITES, {
             method: "GET",
@@ -179,28 +210,28 @@ async function loadYourDoggy () {
                 "X-API-KEY": "live_imFX3wCXMSiiT5grtBIzq2NKnjjOSqkAUFB02DRHoqYeCNuK65JgQgc2DsTNbDtc",
             },
         });
-        const statusLoadFavourites = response.status;
-        if (statusLoadFavourites !== 200) {
-            throw new Error (`Error en la petición a Favorites: ${statusLoadFavourites}`);
+        const statusLoadOwn = response.status;
+        if (statusLoadOwn !== 200) {
+            throw new Error (`Error en la petición a OwnDoggys: ${statusLoadOwn}`);
         }
         const data = await response.json();
-        console.log("Favoritos");
+        console.log("Own");
         console.log(data);
 
         const section = document.getElementById("your-doggys");
         section.innerHTML = "";
 
-        data.forEach(doggy => {
+        data.forEach(owndoggy => {
             const article = document.createElement("article");
             const img = document.createElement("img");
             const button = document.createElement("button");
-            const buttonText = document.createTextNode("Delete from favorites");
+            const buttonText = document.createTextNode("Delete from Own Pictures");
             
-            img.src = doggy.image.url
+            img.src = owndoggy.image.url
             img.width = 400;
             img.height = 400;
             button.appendChild(buttonText);
-            button.onclick = () => deleteFavouriteDoggy(doggy.id);
+            button.onclick = () => deleteFavouriteDoggy(owndoggy.id);
             article.appendChild(img);
             article.appendChild(button);
             section.appendChild(article);
@@ -213,16 +244,15 @@ async function loadYourDoggy () {
             button.style.borderRadius = "8px";
         });
     } catch (error) {
-        const errorNodoFavourites = document.getElementById("error-in-favorites");
-        errorNodoFavourites.innerHTML = `Error: ${error.message}`;
-        throw new Error("Catch de loadFavouritesDoggys tomo un error-Este mensaje es para verlo en consola");
+        const errorNodoOwn = document.getElementById("error-in-ownDoggy");
+        errorNodoOwn.innerHTML = `Error: ${error.message}`;
+        throw new Error("Catch de loadOwnDoggys tomo un error-Este mensaje es para verlo en consola");
     };
 };
 
 
 
-
-
-
 loadRandomDoggys();
 loadFavouriteDoggy();
+
+loadOwnDoggy();
