@@ -98,7 +98,7 @@ Clase 9: GET: leyendo perritos favoritos.
     
     Termine de hacer la clase guiandome de lo que vi en los comentarios para mostrar los errores utilizando try y catch y tambien un poco de mi propio estilo.
 
-    Aparte: si sehace console.log(data) puedo ver el objeto y cuales son sus propiedades. Ademas es bueno colocar un console.log(nombre de la ffuncion para entenderlo mas claro en consola).
+    Aparte: si se hace console.log(data) puedo ver el objeto y cuales son sus propiedades. Ademas es bueno colocar un console.log(nombre de la funcion para entenderlo mas claro en consola).
 
     OJO: Todavia no he puesto a funcionar la funcion de cargar a favoritos pero por lo que veo el si... pero no ha dicho como. (Despues de ver y volver varias veces vi como --- tenia que agregar una imagen_id de una de las imagenes que se habian cargado. Pero carga solo esa con el boton... creo que despues se acomodara.)
 
@@ -137,7 +137,7 @@ Clase 11: Consultas a la API para escribir HTML dinámico.
     Para areglar eso:
         Primero borramos el atributo onclick de los botones de Guardar foto en favoritos que teniamos llamando la funcion.
         Tenemos que cargar los botones al js.
-        Despues agregarle la funcion .onclick que llame a la funcion saveFavouriteDoggy con el parametro data.id. Peroooooooooo asiendolo asi las funciones se estan llamando inmediatamente cuando se carga la pagina por lo que de debe meter esa funcion dentro de otra funcion. Y se hizo con arrow function.
+        Despues agregarle la funcion .onclick que llame a la funcion saveFavouriteDoggy con el parametro data.id. Peroooooooooo haciendolo asi las funciones se estan llamando inmediatamente cuando se carga la pagina por lo que de debe meter esa funcion dentro de otra funcion. Y se hizo con arrow function.
 
 
 Clase 12: Delete: borrando doggys favoritos.

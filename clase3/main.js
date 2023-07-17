@@ -36,8 +36,8 @@ async function loadRandomDoggys () {
         buttonSaveRandomtoFavourites4.onclick = () => saveFavouriteDoggy(data[3].id);
 
     } catch (error) {
-        const errorNodo = document.getElementById("error-in-random");
-        errorNodoRandom.innerHTML = `Error: ${error.message}`;
+        const errorNodoRandom = document.getElementById("error-in-random");
+        errorNodoRandom.innerHTML = `Error: ${error.message}`; 
         throw new Error ("Catch de loadRandomsDoggys tomo un error-Este mensaje es para verlo en consola");
     };
 };
