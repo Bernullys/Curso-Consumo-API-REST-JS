@@ -287,3 +287,32 @@ body {
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 640px) {
+    .header-container p {
+        display: none;
+    }
+
+}
+
+@media (max-width: 525px) {
+    .footers-items-2 {
+        display: none;
+    }
+    .upload-button {
+        font-size: var(--rsm);
+    }
+    #random-button {
+        width: 200px;
+    }
+    .random-image2,
+    .random-image3,
+    .random-image4 {
+        display: none;
+    }
+    .random-image1 {
+        width: 250px;
+        height: 250px;
+    }
+
+}
