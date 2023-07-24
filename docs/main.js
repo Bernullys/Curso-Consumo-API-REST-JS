@@ -6,7 +6,7 @@ const GET_UPLOAD = "https://api.thedogapi.com/v1/images/?limit=100";
 const DELETE_OWN = (id) => `https://api.thedogapi.com/v1/images/${id}`;
 
 
-//Ths function is by documentation,to get random images//
+//This function is by documentation,to get random images//
 async function getRandomDogs () {
 
     try {
@@ -221,7 +221,7 @@ async function uploadDog() {
     console.log("This is the info get from the form using FormData");
     console.log(formData.get("file"));
 
-    //This is unsolve... I want to use the button fron here, not from html//
+    //This is unsolve... I want to use the button from here, not from html//
     // const uploadButton = document.querySelector(".upload-button");
     // uploadButton.addEventListener("click", uploadDog);
 
